@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App1"
+             x:Class="App1.MainPage"   
+             Style="{StaticResource EmptyLoadPageStyle}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EmptyLoadPageStyle" TargetType="ContentPage">
+                <Setter Property="Title" Value="空装"/>
+            </Style>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="End"/>
+            </Style>
+            <Style x:Key="entryStyle" TargetType="Entry">
+                <Setter Property="Margin" Value="10,0,0,0" />
+                <Setter Property="BackgroundColor" Value="#E9F0F7" />
+                <Setter Property="FontSize" Value="Small" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems BarBackgroundColor="Color.Red">
+        <ToolbarItem x:Name="messageinfo" Icon="top_message.png" Priority="1" Order="Primary"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ScrollView>
+                <Grid Margin="5,5,5,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="280"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="45"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="110" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="110" />
+                        </Grid.ColumnDefinitions>
+                        <!--给第一行标题设置背景色-->
+                        <BoxView Color="#EAE3E3"  Grid.Row="0" Margin="0,-5,0,5" Grid.ColumnSpan="4"/>
+                        <!--标题行-->
+                        <Label Grid.Row="0"    Grid.ColumnSpan="4" Text="请车信息" VerticalOptions="Center"  FontSize="Medium"></Label>
+                        <Label Grid.Row="1" Style="{StaticResource LabelStyle}" Grid.Column="0"   Text="用车单位"></Label>
+                        <Entry x:Name="txtStartOrgName"   Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1" Style="{StaticResource entryStyle}"></Entry>
+                        <Label Grid.Row="2" Style="{StaticResource LabelStyle}" Grid.Column="0" Text="车种"></Label>
+                        <Entry x:Name="hid_CategoryID" Grid.Row="2" Grid.Column="1" Style="{StaticResource entryStyle}"></Entry>
+                        <Label Grid.Row="2" Style="{StaticResource LabelStyle}" Grid.Column="2" Text="数量"></Label>
+                        <Entry x:Name="txtFlatNum" Grid.Row="2" Grid.Column="3" Style="{StaticResource entryStyle}"></Entry>
+                        <Label Grid.Row="3" Style="{StaticResource LabelStyle}" Grid.Column="0" Text="品名"></Label>
+                        <Entry x:Name="txtGoodName" Grid.Row="3" Grid.Column="1" Style="{StaticResource entryStyle}"></Entry>
+                        <Label Grid.Row="3" Style="{StaticResource LabelStyle}" Grid.Column="2" Text="用车时间"></Label>
+                        <Entry x:Name="txtUseVehicleTime" Grid.Row="3" Grid.Column="3" Style="{StaticResource entryStyle}"></Entry>
+                        <Label Grid.Row="4" Style="{StaticResource LabelStyle}" Grid.Column="0" Text="终点线路"></Label>
+                        <Entry x:Name="hid_EndLineID" Grid.Row="4" Grid.Column="1" Style="{StaticResource entryStyle}"></Entry>
+                        <Label Grid.Row="4" Style="{StaticResource LabelStyle}" Grid.Column="2" Text="跨位"></Label>
+                        <Entry x:Name="hid_EndCrossBitID" Grid.Row="4" Grid.Column="3" Style="{StaticResource entryStyle}"></Entry>
+                        <Label Grid.Row="5" Style="{StaticResource LabelStyle}" Grid.Column="0" Text="备注"></Label>
+                        <Entry x:Name="txtApplyRemark" Grid.Row="5" Grid.ColumnSpan="3" Grid.Column="1" Style="{StaticResource entryStyle}"></Entry>
+                    </Grid>
+                    <Grid Grid.Row="1" x:Name="Detail_Grid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="180"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" x:Name="Detail_Grid_0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="110" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="110" />
+                            </Grid.ColumnDefinitions>
+                            <!--给装车明细第一行标题设置背景色-->
+                            <BoxView Color="#EAE3E3"  Grid.Row="0" Margin="0,-10,0,5" Grid.ColumnSpan="4"/>
+                            <!--标题行-->
+                            <Label Grid.Row="0"    Grid.ColumnSpan="4" Text="装车明细" VerticalOptions="Center" FontSize="Medium"></Label>
+                            <Label Grid.Row="1" Style="{StaticResource LabelStyle}" Grid.Column="0" Text="品名"></Label>
+                            <Entry x:Name="txtGoodsName_0"   Grid.Row="1"  Grid.Column="1" Style="{StaticResource entryStyle}"></Entry>
+                            <Label Grid.Row="1" Style="{StaticResource LabelStyle}" Grid.Column="2" Text="重量(kg)"></Label>
+                            <Entry x:Name="txtGoodsWeight_0" Grid.Row="1" Grid.Column="3" Style="{StaticResource entryStyle}"></Entry>
+                            <Label Grid.Row="2" Style="{StaticResource LabelStyle}" Grid.Column="0" Text="生产编号"></Label>
+                            <Entry x:Name="txtGoodNO_0" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"  Style="{StaticResource entryStyle}"></Entry>
+                            <Label Grid.Row="3"  Style="{StaticResource LabelStyle}" Grid.Column="0" Text="注意事项"></Label>
+                            <Entry x:Name="txtRemark_0"  Grid.Row="3" Grid.ColumnSpan="3" Grid.Column="1" Style="{StaticResource entryStyle}"></Entry>
+                        </Grid> 
+                    </Grid>
+                    <Grid Grid.Row="2"  HorizontalOptions="End" VerticalOptions="Start">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="AddLoadVehicleDetailBtn"  Grid.Column="1" BackgroundColor="#3987AD" Clicked="AddLoadDetailInfo"   TextColor="Black"  FontSize="Medium"  Text="添加装车明细"/>
+                    </Grid>
+                </Grid>
+            </ScrollView>
+            <Grid Grid.Row="1">
+                <Button Grid.Column="0"  x:Name="CancelBtn" Margin="0,-10,-10,0" HeightRequest="40"  BackgroundColor="White"   TextColor="Black"  FontSize="Medium"  Text="取消"/>
+                <Button Grid.Column="1"  x:Name="SaveBtn"  HeightRequest="40" Margin="0,-10,0,0" BackgroundColor="#DA3738"    TextColor="White"  FontSize="Medium"  Text="提交"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
